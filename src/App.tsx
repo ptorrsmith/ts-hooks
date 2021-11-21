@@ -1,10 +1,13 @@
 // import React from 'react';
 import './App.css';
+import UseStateComponent from './components/useStateComponent';
 
 function App() {
   return (
-    // <div className="App">
-    <div>Hello world</div>
+    <div>
+      <h1>UseState</h1>
+      <UseStateComponent />
+    </div>
   );
 }
 
