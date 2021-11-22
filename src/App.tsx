@@ -4,6 +4,8 @@ import UseStateComponent from './components/useStateComponent';
 import UseEffectComponent from './components/useEffectComponent';
 import UseContextComponent from './components/useContextComponent';
 import UseReducerComponent from './components/useReducerComponent';
+import UseRefComponent from './components/useRefComponent';
+
 function App() {
   return (
     <div>
@@ -20,6 +22,9 @@ function App() {
       <h4>For more complex state than useState</h4>
       <h6>"like redux built into react"</h6>
       <UseReducerComponent />
+
+      <h1>useRef</h1>
+      <UseRefComponent />
 
     </div>
   );
