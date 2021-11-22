@@ -6,6 +6,8 @@ import UseContextComponent from './components/useContextComponent';
 import UseReducerComponent from './components/useReducerComponent';
 import UseRefComponent from './components/useRefComponent';
 import CustomHookComponent from './components/customHookComponent'; // since exports default, can call it what we want
+import TestComponent from './components/evenMoreReactComponent';
+import { HeadingViaFunction, HeadingViaConst } from './components/evenMoreReactComponent';
 
 function App() {
   return (
@@ -30,6 +32,12 @@ function App() {
       <h1>customHook</h1>
       <CustomHookComponent />
 
+      <h1>evenMoreReact</h1>
+      <TestComponent />
+
+      <HeadingViaFunction title="cool title brought to you by a function" />
+
+      <HeadingViaConst title="cool title brought to you by a const" />
     </div>
   );
 }
