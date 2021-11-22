@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useMemo } from 'react'
 
 // copied sample data structure for an item into the clipboard
 
@@ -60,18 +61,41 @@ function useFetchData<Payload>(
 function useCustomHookComponent() {
 
   const { data, done } = useFetchData<Beverage[]>('/hv-taplist.json')
+  const portlandTaps = useMemo(() =>
+    (data || []).filter(bev => bev.producerLocation === 'Portland, OR'),
+    [data]
+    )
 
   return (
+    <>
     <div>
       {done && (
+        <>
         <img
           alt="Beverage logo"
           src={data![0].logo}
           title={data![0].beverageName}
         />
+        <p>{data![0].producerLocation}</p>
+        </>
       )}
     </div>
-  )
+    <hr />
+    <h4>Portland Taps</h4>
+    <div>
+      {portlandTaps.length > 0 && (
+        <>
+        <img
+          alt="Beverage logo"
+          src={portlandTaps![0].logo}
+          title={portlandTaps![0].beverageName}
+        />
+        <p>{portlandTaps![0].producerLocation}</p>
+        </>
+      )}
+    </div>
+  </>
+)
 }
 
 export default useCustomHookComponent; // since exports default, can call it what we want when it's imported
