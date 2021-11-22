@@ -5,6 +5,7 @@ import UseEffectComponent from './components/useEffectComponent';
 import UseContextComponent from './components/useContextComponent';
 import UseReducerComponent from './components/useReducerComponent';
 import UseRefComponent from './components/useRefComponent';
+import CustomHookComponent from './components/customHookComponent'; // since exports default, can call it what we want
 
 function App() {
   return (
@@ -25,6 +26,9 @@ function App() {
 
       <h1>useRef</h1>
       <UseRefComponent />
+
+      <h1>customHook</h1>
+      <CustomHookComponent />
 
     </div>
   );

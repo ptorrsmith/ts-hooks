@@ -1,3 +1,5 @@
+import { useState, useEffect } from 'react'
+
 // copied sample data structure for an item into the clipboard
 
 // {
@@ -29,3 +31,45 @@ export interface Beverage {
   level: number;
 }
 
+
+
+function useFetchData(url: string): {
+  data: Beverage[] | null
+  done: boolean
+} {
+  const [data, dataSet] = useState<Beverage[] | null>(null) // warning re null default state
+  const [done, doneSet] = useState(false)
+
+  useEffect(() => {
+    fetch(url)
+      .then(response => response.json())
+      .then((d: Beverage[]) => {
+        dataSet(d)
+        doneSet(true)
+      })
+    }, [url])
+
+    return {
+      data,
+      done
+    }
+  }
+
+function useCustomHookComponent() {
+
+  const { data, done } = useFetchData('/hv-taplist.json')
+
+  return (
+    <div>
+      {done && (
+        <img
+          alt="Beverage logo"
+          src={data![0].logo}
+          title={data![0].beverageName}
+        />
+      )}
+    </div>
+  )
+}
+
+export default useCustomHookComponent; // since exports default, can call it what we want when it's imported
