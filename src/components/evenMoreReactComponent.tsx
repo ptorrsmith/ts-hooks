@@ -1,4 +1,5 @@
 // define then export the interface for props
+import { ReactNode } from "react"
 
 export interface HeadingProps {
   title: string
@@ -17,11 +18,37 @@ export const HeadingViaConst = ({ title }: HeadingProps) =>{
   )
 }
 
+export function List<ListItem>({
+  items,
+  render
+}: {
+  items: ListItem[]
+  render: (item: ListItem) => ReactNode  
+}) {
+  return (
+    <ul>
+      {items.map((item, index) => (
+        <li key={index}>
+          {render(item)}
+        </li>
+      ))}
+    </ul>
+  )
+}
+
 function TestComponent() {
   return (
     <>
     <HeadingViaFunction title="my heading via a function" />
     <HeadingViaConst title="my heading via a const" />
+    </>
+  )
+}
+
+export function ListComponent() {
+  return (
+    <>
+      <List items={["x", "y", "z"]} render={item => <span>{item}</span>} />
     </>
   )
 }

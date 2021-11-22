@@ -7,7 +7,7 @@ import UseReducerComponent from './components/useReducerComponent';
 import UseRefComponent from './components/useRefComponent';
 import CustomHookComponent from './components/customHookComponent'; // since exports default, can call it what we want
 import TestComponent from './components/evenMoreReactComponent';
-import { HeadingViaFunction, HeadingViaConst } from './components/evenMoreReactComponent';
+import { HeadingViaFunction, HeadingViaConst, ListComponent } from './components/evenMoreReactComponent';
 
 function App() {
   return (
@@ -38,6 +38,8 @@ function App() {
       <HeadingViaFunction title="cool title brought to you by a function" />
 
       <HeadingViaConst title="cool title brought to you by a const" />
+
+      <ListComponent />
     </div>
   );
 }
