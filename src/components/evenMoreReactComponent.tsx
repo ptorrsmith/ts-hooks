@@ -36,6 +36,27 @@ export function List<ListItem>({
   )
 }
 
+type AnotherListItemComponent = <ListItem> ({
+  items,
+  render
+}: {
+  items: ListItem[]
+  render: (item: ListItem) => ReactNode
+}) => ReactNode
+
+export const AnotherList: AnotherListItemComponent  = ({ items, render }) => {
+  return (
+    <ul>
+      {items.map((item, index) => (
+        <li key={index}>
+          {render(item)}
+        </li>
+      ))}
+    </ul>
+  )
+}
+
+
 function TestComponent() {
   return (
     <>
@@ -52,5 +73,13 @@ export function ListComponent() {
     </>
   )
 }
+
+// export function ListComponentWithConstComponent() {
+//   return (
+//     <>
+//       <AnotherList items={["x", "y", "z"]} render={item => <span>{item}</span>} />
+//     </>
+//   )
+// }
 
 export default TestComponent;

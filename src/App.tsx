@@ -35,11 +35,19 @@ function App() {
       <h1>evenMoreReact</h1>
       <TestComponent />
 
+      <h1>Component built with a function</h1>
       <HeadingViaFunction title="cool title brought to you by a function" />
 
+      <h1>Component built with a const</h1>
       <HeadingViaConst title="cool title brought to you by a const" />
 
+      <h1>List Component built with a function</h1>
       <ListComponent />
+
+      {/* <h1>List Component built with a function</h1>
+      <AnotherList /> */}
+
+
     </div>
   );
 }
